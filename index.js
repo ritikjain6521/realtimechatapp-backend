@@ -1,9 +1,17 @@
 
 
-const io = require('socket.io')( https://realtimechatapp-backend-16cq.onrender.com, {
+const http = require('http');
+const { Server } = require('socket.io');
+
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("Socket.io server is running.");
+});
+
+const io = new Server(server, {
   cors: {
-    origin: "https://realtimechatapp-frontend.vercel.app/",
-     methods: ["GET", "POST"]
+    origin: "https://your-frontend.vercel.app", // ✅ change to your actual Vercel frontend URL
+    methods: ["GET", "POST"]
   }
 });
 
@@ -26,4 +34,9 @@ io.on('connection', socket => {
     delete users[socket.id];
   });
 })
+
+const PORT = process.env.PORT || 8000;
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
   
