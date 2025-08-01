@@ -1,12 +1,12 @@
 
-const { Server } = require("socket.io");
-const io = new Server(server, {
+
+
+const io = require('socket.io')(8000, {
   cors: {
-    origin: "https://realtimechatapp-frontend.vercel.app/", // ✅ Replace with your Vercel frontend URL
-    methods: ["GET", "POST"]
+    origin: "http://127.0.0.1:5500",
+     methods: ["GET", "POST"]
   }
 });
-
 
 const users = {};
 
