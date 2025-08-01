@@ -1,10 +1,21 @@
 
 
+const http = require("http");
+const { Server } = require("socket.io");
 
-const io = require('socket.io')(8000, {
+const PORT = process.env.PORT || 8000;
+
+// Create a basic HTTP server
+const server = http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end("Socket.io chat server is running.");
+});
+
+// Attach socket.io to the server
+const io = new Server(server, {
   cors: {
-    origin: "http://127.0.0.1:5500",
-     methods: ["GET", "POST"]
+    origin: "https://realtimechatapp-frontend.vercel.app", // ✅ No trailing slash
+    methods: ["GET", "POST"]
   }
 });
 
