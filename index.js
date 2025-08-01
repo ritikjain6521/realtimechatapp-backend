@@ -1,6 +1,6 @@
 const { Server } = require("socket.io");
 
-const io = require('socket.io')(server, {
+const io = require('socket.io')( Server, {
   cors: {
     origin: "https://realtimechatapp-frontend.vercel.app/",
      methods: ["GET", "POST"]
