@@ -16,6 +16,9 @@ const io = new Server(server, {
 });
 
 const users = {};
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
 io.on('connection', socket => {
   socket.on('new-user-joined', name => {
