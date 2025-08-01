@@ -1,12 +1,13 @@
 
 
 
-const io = require('socket.io')(https://realtimechatapp-frontend.vercel.app/, {
+const io = require('socket.io')(8000, {
   cors: {
-    origin: "https://realtimechatapp-frontend.vercel.app/",
+    origin: "https://realtimechatapp-backend-16cq.onrender.com",
      methods: ["GET", "POST"]
   }
 });
+
 
 const users = {};
 
