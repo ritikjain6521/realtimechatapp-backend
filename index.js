@@ -1,24 +1,15 @@
 
 
-const http = require('http');
-const { Server } = require('socket.io');
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200);
-  res.end("Socket.io server is running.");
-});
-
-const io = new Server(server, {
+const io = require('socket.io')(8000, {
   cors: {
-    origin: "https://your-frontend.vercel.app", // ✅ change to your actual Vercel frontend URL
-    methods: ["GET", "POST"]
+    origin: "http://127.0.0.1:5500",
+     methods: ["GET", "POST"]
   }
 });
 
 const users = {};
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+
 
 io.on('connection', socket => {
   socket.on('new-user-joined', name => {
@@ -37,9 +28,4 @@ io.on('connection', socket => {
     delete users[socket.id];
   });
 })
-
-const PORT = process.env.PORT || 8000;
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
   
