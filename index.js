@@ -1,11 +1,5 @@
 
 const { Server } = require("socket.io");
-
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Socket.io server is running.");
-});
-
 const io = new Server(server, {
   cors: {
     origin: "https://realtimechatapp-frontend.vercel.app/", // ✅ Replace with your Vercel frontend URL
