@@ -1,6 +1,6 @@
 
 
-const io = require('socket.io')(https://realtimechatapp-backend-16cq.onrender.com, {
+const io = require('socket.io')(server, {
   cors: {
     origin: "https://realtimechatapp-frontend.vercel.app/",
      methods: ["GET", "POST"]
