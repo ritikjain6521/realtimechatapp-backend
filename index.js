@@ -2,11 +2,14 @@ const http = require("http");
 const { Server } = require("socket.io");
 
 const PORT = process.env.PORT || 8000;
-
 const server = http.createServer((req, res) => {
-  res.writeHead(200);
-  res.end("Socket.io Chat Server Running");
+  res.writeHead(200, {
+    "Access-Control-Allow-Origin": "*", // Optional: browser preflight
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS"
+  });
+  res.end("Socket.IO Server Running");
 });
+
 
 const io = new Server(server, {
   cors: {
