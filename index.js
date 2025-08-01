@@ -1,4 +1,4 @@
-
+const { Server } = require("socket.io");
 
 const io = require('socket.io')(server, {
   cors: {
